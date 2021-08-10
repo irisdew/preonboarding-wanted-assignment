@@ -1,6 +1,8 @@
 # 책책책 책을 찾읍시다!
 
 ### Query string
+- parse
+- stringifyUrl
 
 사용자가 입력 데이터를 전달하는 방법중에 하나로, url 주소에 미리 협의된 데이터를 파라미터를 통해 넘기는 것을 말한다
 
@@ -9,6 +11,8 @@
 - 파라미터가 여러개일 경우 &를 붙여 여러개의 파라미터를 넘길 수 있다.
 - 엔드포인트주소/엔드포인트주소?파라미터=값&파라미터=값
 - = 로 key 와 value 가 구분된다.
+
+
 
 ### useLocation
 
@@ -44,9 +48,20 @@ const [state, dispatch] = useReducer(reducer, {
 
 redux-toolkit
 
+redux 에서 모듈을 관리하기 위한 패턴중 ducks-pattern 을 공식적으로 지원
+action type을 만들고, action creator를 만들고, reducer를 만드는 모든 일이 createSlice 한방에 가능
+
+- name : 해당 모듈의 이름을 작성합니다.
+- initialState : 해당 모듈의 초기값을 세팅합니다.
+- reducers : 리듀서를 작성합니다. 이때 해당 리듀서의 키값으로 액션함수가 자동으로 생성됩니다.
+
+
+
 <hr />
 
 ### Reference
 
-https://velog.io/@pear/Query-String-%EC%BF%BC%EB%A6%AC%EC%8A%A4%ED%8A%B8%EB%A7%81%EC%9D%B4%EB%9E%80
-https://www.daleseo.com/react-hooks-use-reducer/
+- https://velog.io/@pear/Query-String-%EC%BF%BC%EB%A6%AC%EC%8A%A4%ED%8A%B8%EB%A7%81%EC%9D%B4%EB%9E%80
+- https://www.daleseo.com/react-hooks-use-reducer/
+- https://velog.io/@goonerholic/Redux-Toolkit-createSlice-%EC%95%8C%EC%95%84%EB%B3%B4%EA%B8%B0
+- https://blog.woolta.com/categories/1/posts/204
