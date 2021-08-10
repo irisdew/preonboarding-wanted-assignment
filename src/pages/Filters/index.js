@@ -7,6 +7,16 @@ import Fieldset from '../../components/Form/Fieldset'
 import Select from '../../components/Form/Select'
 import Radio from '../../components/Form/Radio'
 
+// option 컴포넌트 밖 상수로 빼기
+const options = [
+  ['', '없음'],
+  ['partial', '미리보기 가능'],
+  ['full', '전체 공개'],
+  ['ebooks', '전체 eBooks'],
+  ['free-ebooks', '무료 eBooks'],
+  ['paid-ebooks', '유료 eBooks']
+]
+
 function Filters() {
   const history = useHistory()
   const { state, handleChange, handleSubmit } = useForm()
@@ -18,20 +28,12 @@ function Filters() {
     <form onSubmit={handleSubmit}>
       <Stack gaps={[0, 20, 20, 40]}>
         <Fieldset legend="필터링">
-          <Select id="filter" value={state.filter} onChange={handleChange}>
-            {[
-              ['', '없음'],
-              ['partial', '미리보기 가능'],
-              ['full', '전체 공개'],
-              ['ebooks', '전체 eBooks'],
-              ['free-ebooks', '무료 eBooks'],
-              ['paid-ebooks', '유료 eBooks']
-            ].map(([value, label]) => (
-              <option key={value} value={value}>
-                {label}
-              </option>
-            ))}
-          </Select>
+          <Select
+            id="filter"
+            value={state.filter}
+            onChange={handleChange}
+            options={options}
+          />
           {/* 이런게 토스 진유림님 영상에 나온 적절한 추상화인가? option 부분은 Select 컴포넌트에 들어가도 될것 같다. 
           배열만 props로 넘겨주는 식으로.. */}
         </Fieldset>

@@ -1,10 +1,14 @@
 import React from 'react'
 
-function Select({ id, children, ...rest }) {
+function Select({ id, children, options, ...rest }) {
   return (
     <label htmlFor={id} className={styles.wrapper}>
       <select id={id} name={id} className={styles.select} {...rest}>
-        {children}
+        {options.map(([value, label]) => (
+          <option key={value} value={value}>
+            {label}
+          </option>
+        ))}
       </select>
       <div className={styles.icon}>
         <svg
